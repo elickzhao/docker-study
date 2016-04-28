@@ -1,0 +1,17 @@
+php:  
+  build: ./php
+  ports:
+    - "9000:9000"
+  volumes_from:
+    - myapp-data
+  privileged: true
+
+nginx:  
+  build: ./nginx
+  volumes_from:
+    - myapp-data
+  links:
+    - php:php
+  ports:
+    - "80:80"
+  privileged: true

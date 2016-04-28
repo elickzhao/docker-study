@@ -1,0 +1,20 @@
+web:  
+  image: russmckendrick/nginx-php
+  volumes:
+    - ./web:/var/www/html/
+  ports:
+    - 80:80
+  environment:
+    PHP_POOL: mywebsite
+  links:
+    - db:db
+db:  
+  image: russmckendrick/mariadb
+  ports:
+    - 3306:3306
+  privileged: true
+  environment:
+    MYSQL_ROOT_PASSWORD: wibble
+    MYSQL_DATABASE: wibble
+    MYSQL_USER: wibble
+    MYSQL_PASSWORD: wibble
