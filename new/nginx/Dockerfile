@@ -1,7 +1,11 @@
 FROM nginx
 
 # Apply Nginx configuration
-ADD nginx.conf /etc/nginx/nginx.conf
+#终于知道这句的用处了 因为每次ip都是变的
+#所以不能直接在这里复制到配置出 
+#因为第一次改变后 第二次启动就找不到替换的变量了 
+#看启动那个shell就明白了
+ADD nginx.conf /opt/etc/nginx.conf
 
 # Nginx startup script
 ADD nginx-start.sh /opt/bin/nginx-start.sh
