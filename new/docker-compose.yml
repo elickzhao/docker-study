@@ -1,7 +1,7 @@
 mysql:
   build: ./mysql
   volumes_from:
-    - myapp-data
+    - myapp-data #缺一个共享数据库位置 也就是把数据库保存在容器外面
   environment:
         - MYSQL_ROOT_PASSWORD=123456
 php:  
