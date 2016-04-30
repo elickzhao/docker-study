@@ -1,9 +1,17 @@
+mysql:
+  build: ./mysql
+  volumes_from:
+    - myapp-data
+  environment:
+        - MYSQL_ROOT_PASSWORD=123456
 php:  
   build: ./php
   ports:
     - "9000:9000"
   volumes_from:
     - myapp-data
+  links:
+    - mysql
   privileged: true
 
 nginx:  

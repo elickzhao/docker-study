@@ -1,5 +1,5 @@
 <?php
-//phpinfo();
+phpinfo();
 //var_dump($GLOBALS);
 //echo shell_exec('echo $PHP_PORT_9000_TCP_ADDR');
 echo exec('whoami');
@@ -20,3 +20,17 @@ echo exec('whoami');
 // </pre>
 // <hr />Last line of the output: ' . $last_line . '
 // <hr />Return value: ' . $retval;
+
+
+$servername = "mysql";
+$username = "root";
+$password = "123456";
+
+// 创建连接
+$conn = new mysql($servername, $username, $password);
+
+// 检测连接
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+echo "Connected successfully";
