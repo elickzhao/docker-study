@@ -1,2 +1,0 @@
-tac /etc/nginx/nginx.conf
-sed -i "s/%fpm-ip%/$PHP_PORT_9000_TCP_ADDR/g" /etc/nginx/nginx.conf
